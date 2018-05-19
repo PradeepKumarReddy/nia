@@ -1,0 +1,7 @@
+npm install -g @angular/cli
+
+ng new nia-ui
+
+cd nia-ui
+
+ng serve
