@@ -5,3 +5,5 @@ ng new nia-ui
 cd nia-ui
 
 ng serve
+
+npm install --save bootstrap@3
