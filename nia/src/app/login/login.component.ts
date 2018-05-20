@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     error = '';
+    showRegister: boolean = false;
  
     constructor(
         private router: Router,
@@ -37,5 +38,15 @@ export class LoginComponent implements OnInit {
                     this.loading = false;
                 }
             });
+    }
+
+    goRegister() {
+        //console.log("showRegister");
+        this.showRegister = true;
+    }
+
+    goLogin() {
+        //console.log("showLogin");
+        this.showRegister = false;
     }
 }
