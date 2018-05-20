@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthenticationService } from '../_services/index';
@@ -12,6 +11,7 @@ import { AuthenticationService } from '../_services/index';
 export class LoginComponent implements OnInit {
 
     model: any = {};
+    registerModel : any = {};
     loading = false;
     error = '';
     showRegister: boolean = false;
@@ -40,6 +40,12 @@ export class LoginComponent implements OnInit {
             });
     }
 
+    register() {
+        console.log(this.registerModel.username);
+        console.log(this.registerModel.password);
+        console.log(this.registerModel.email);
+        console.log(this.registerModel.confirm_password);
+    }
     goRegister() {
         //console.log("showRegister");
         this.showRegister = true;
