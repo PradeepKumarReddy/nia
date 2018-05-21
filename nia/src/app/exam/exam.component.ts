@@ -57,7 +57,7 @@ export class ExamComponent implements OnInit {
   onSelect(question , option) {
   	question.options.forEach (function(element, index, array) {
   		if(element.id != option.id) {
-  			element.selected = flase;
+  			element.selected = false;
   		}
   	});
   }

@@ -10,6 +10,10 @@ export class AdminComponent implements OnInit {
 
   questions : Question[] = [];
 
+  addQuestionModel : Question;
+  addOptionModel : Option[] = [];
+  option : string = "";
+
   constructor() { }
 
   ngOnInit() {
@@ -24,6 +28,21 @@ export class AdminComponent implements OnInit {
   		]
   	}
   	];
+    this.addQuestionModel = new Question();
+    
+  }
+
+  addQuestion() {
+    console.log("add question called");
+    this.addQuestionModel.options.push(...this.addOptionModel);
+    this.questions.push(this.addQuestionModel);
+    this.addQuestionModel = new Question();
+    this.addOptionModel = [];
+  }
+
+  addOption() {
+    this.addOptionModel.push({"name" : this.option});
+    this.option = "";
   }
 
 }
