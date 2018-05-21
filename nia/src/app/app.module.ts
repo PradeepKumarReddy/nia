@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
@@ -15,6 +16,8 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './_guards/index';
 import { AuthenticationService, UserService } from './_services/index';
 import { HomeComponent } from './home/index';
+import { ExamComponent } from './exam/exam.component';
+
 
 
 
@@ -23,13 +26,15 @@ import { HomeComponent } from './home/index';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    ExamComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [
     AuthGuard,

@@ -1,3 +1,16 @@
-<p>
-  admin works!
-</p>
+<div class="container">
+    <div class="row">
+    	<div class="col-md-6">
+    		<label>Add Question</label>
+    	</div>
+    	<div class="col-md-6">
+    		<label>Display Questions</label>
+    		<div *ngFor="let question of questions" class="question">
+    			<label>{{question.name}}</label>
+    			<div *ngFor="let option of question.options">
+    				<label>{{option.name}}</label>
+    			</div>
+    			
+    		</div>
+    	</div>
+</div>
