@@ -17,6 +17,7 @@ import { AuthGuard } from './_guards/index';
 import { AuthenticationService, UserService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { ExamComponent } from './exam/exam.component';
+import { TimerComponent } from './timer/timer.component';
 
 
 
@@ -27,7 +28,8 @@ import { ExamComponent } from './exam/exam.component';
     HomeComponent,
     LoginComponent,
     AdminComponent,
-    ExamComponent
+    ExamComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

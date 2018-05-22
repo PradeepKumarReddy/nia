@@ -4,4 +4,5 @@ export class Question {
 	id? : number;
 	name?: string;
 	options? : Option[] = [];
+	isAnswered? : boolean = false;
 }

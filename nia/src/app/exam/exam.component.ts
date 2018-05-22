@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Question, Option } from "../_models/index";
 
+import { TimerComponent } from '../timer/timer.component';
+
 @Component({
   selector: 'app-exam',
   templateUrl: './exam.component.html',
@@ -43,23 +45,142 @@ export class ExamComponent implements OnInit {
 	  			{"id":4, "name": "Bangalore"}
 	  		]},
 	  		{
-  			"id": 1,
+  			"id": 4,
   			"name": "Most ODI centuries played by Cricketer ?",
 	  		options: [
 	  			{"id":1, "name": "Ponting"},
 	  			{"id":2, "name": "Sachin"},
 	  			{"id":3, "name": "Kohli"},
 	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 5,
+  			"name": "Java latest version ?",
+	  		options: [
+	  			{"id":1, "name": "6"},
+	  			{"id":2, "name": "8"},
+	  			{"id":3, "name": "10"},
+	  			{"id":4, "name": "9"}
+	  		]},{
+  			"id": 6,
+  			"name": "National Animal ?",
+	  		options: [
+	  			{"id":1, "name": "Peakock"},
+	  			{"id":2, "name": "Tiger"},
+	  			{"id":3, "name": "Bengal Tiger"},
+	  			{"id":4, "name": "Elepent"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
+	  		]},
+	  		{
+  			"id": 7,
+  			"name": "Best palyer of year ?",
+	  		options: [
+	  			{"id":1, "name": "Ponting"},
+	  			{"id":2, "name": "Sachin"},
+	  			{"id":3, "name": "Kohli"},
+	  			{"id":4, "name": "Dhoni"}
 	  		]}
+
 	  	];
   }
 
   onSelect(question , option) {
+  	question.isAnswered = false;
   	question.options.forEach (function(element, index, array) {
   		if(element.id != option.id) {
   			element.selected = false;
   		}
   	});
+  	question.options.forEach (function(element) {
+  		if(element.selected) {
+  			question.isAnswered = true;
+  		}
+  	});
+  	//console.log(question);
+  }
+
+  gotoQuestion(i) {
+  	this.p = i+1;
   }
 
 }
