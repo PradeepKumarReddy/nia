@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-//import { timer } from 'rxjs/observable/timer';
-//import { take, map } from 'rxjs/operators';
+import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
+import { map, filter, switchMap  } from 'rxjs/operators';
 
 @Component({
   selector: 'app-timer',
@@ -14,11 +14,14 @@ export class TimerComponent implements OnInit {
    count = 60;
 
    constructor() {
-
+   range(1, 200)
+    .pipe(filter(x => x % 2 === 1), map(x => x + x))
+    .subscribe(x => console.log(x));
+    
        //this.countDown = timer(0,1000).pipe(
-       //   take(this.count),
-       //   map(()=> --this.count)
-       //);
+       // take(this.count),
+       // map(()=> --this.count)
+     // );
    }
 
    ngOnInit() {

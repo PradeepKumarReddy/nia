@@ -12,3 +12,6 @@ install pagination
 
 //https://ciphertrick.com/2017/08/01/search-sort-pagination-in-angular/
 npm install ngx-pagination --save
+
+//timer
+npm install ng2-simple-timer

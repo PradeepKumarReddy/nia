@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
 import { MockBackend, MockConnection } from '@angular/http/testing';
@@ -18,6 +19,7 @@ import { AuthenticationService, UserService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { ExamComponent } from './exam/exam.component';
 import { TimerComponent } from './timer/timer.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -29,7 +31,8 @@ import { TimerComponent } from './timer/timer.component';
     LoginComponent,
     AdminComponent,
     ExamComponent,
-    TimerComponent
+    TimerComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
