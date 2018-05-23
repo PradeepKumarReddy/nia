@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import { SimpleTimer } from 'ng2-simple-timer';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
@@ -20,6 +20,9 @@ import { HomeComponent } from './home/index';
 import { ExamComponent } from './exam/exam.component';
 import { TimerComponent } from './timer/timer.component';
 import { HeaderComponent } from './header/header.component';
+import { NewtimerComponent } from './newtimer/newtimer.component';
+import { SecondsToDateTimePipe } from './_helpers/index';
+
 
 
 
@@ -32,7 +35,9 @@ import { HeaderComponent } from './header/header.component';
     AdminComponent,
     ExamComponent,
     TimerComponent,
-    HeaderComponent
+    HeaderComponent,
+    NewtimerComponent,
+    SecondsToDateTimePipe
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,9 @@ import { HeaderComponent } from './header/header.component';
     // providers used to create fake backend
     fakeBackendProvider,
     MockBackend,
-    BaseRequestOptions
+    BaseRequestOptions,
+    SimpleTimer,
+    SecondsToDateTimePipe
   ],
   bootstrap: [AppComponent]
 })

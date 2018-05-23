@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
-import { map, filter, switchMap  } from 'rxjs/operators';
+import { SimpleTimer } from 'ng2-simple-timer';
+
 
 @Component({
   selector: 'app-timer',
@@ -10,21 +11,39 @@ import { map, filter, switchMap  } from 'rxjs/operators';
 })
 export class TimerComponent implements OnInit {
 
-  countDown;
-   count = 60;
+   counter=30;
+   timerId: string;
+   timerbutton = 'Subscribe';
 
-   constructor() {
-   range(1, 200)
-    .pipe(filter(x => x % 2 === 1), map(x => x + x))
-    .subscribe(x => console.log(x));
-    
-       //this.countDown = timer(0,1000).pipe(
-       // take(this.count),
-       // map(()=> --this.count)
-     // );
-   }
+   constructor(private st : SimpleTimer, private router: Router) { }
 
    ngOnInit() {
+      this.st.newTimer('1sec', 1);
+      this.subscribeTimer();
+   }
+
+   subscribeTimer() {
+    if (this.timerId) {
+      // Unsubscribe if timer Id is defined
+      this.st.unsubscribe(this.timerId);
+      this.timerId = undefined;
+      this.timerbutton = 'Subscribe';
+      console.log('timer 0 Unsubscribed.');
+    } else {
+      // Subscribe if timer Id is undefined
+      this.timerId = this.st.subscribe('1sec', () => this.timercallback());
+      this.timerbutton = 'Unsubscribe';
+      console.log('timer 0 Subscribed.');
+    }
+    console.log(this.st.getSubscription());
+  }
+
+  timercallback(): void {
+    this.counter--;
+    if(this.counter <=0 ) {
+      this.st.unsubscribe(this.timerId);
+      this.router.navigate(['/']);
+    }
   }
 
 }
