@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-login">
-                    <div class="panel-heading">
+                    <!-- <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">
                                 <a (click)="goLogin()" class="active" id="login-form-link">Login</a>
@@ -13,10 +13,10 @@
                             </div>
                         </div>
                         <hr>
-                    </div>
+                    </div> -->
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-12" *ngIf="!showRegister">
+                            <div class="col-lg-12">
 
                                 <div class="alert alert-info">
                                     Username: test<br />
@@ -39,53 +39,9 @@
                                         <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                                
                                     </div>
-                                    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-                                </form>
-                            </div>
-                            <div class="col-lg-12" *ngIf="showRegister">
-                                
-                                <form id="register-form" (ngSubmit)="register()">
-                                    <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" 
-                                        required
-                                        class="form-control" placeholder="Username" 
-                                        [(ngModel)]="registerModel.username">
-                                    </div>
-                                    <!-- <div [hidden]="registerModel.username.valid"
-                                         class="alert alert-danger">
-                                      Username is required
-                                    </div> -->
-                                    <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="2" class="form-control" placeholder="Email Address" 
-                                        required 
-                                        [(ngModel)]="registerModel.email">
-                                    </div>
-                                    <!-- <div [hidden]="email.valid || email.pristine"
-                                         class="alert alert-danger">
-                                      Email is required
-                                    </div> -->
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="3" class="form-control" placeholder="Password" 
-                                        required
-                                        [(ngModel)]="registerModel.password"
-                                        >
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="confirm-password" 
-                                        id="confirm-password" tabindex="4" class="form-control" placeholder="Confirm Password" 
-                                        [(ngModel)]="registerModel.confirm_password" required>
-                                    </div>
-                                    <div *ngIf="registerModel.password != registerModel.confirm_password"
-                                         class="alert alert-danger">
-                                      Confirm Password should be same as Password
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-6 col-sm-offset-3">
-                                                
-                                                <input type="submit" name="register-submit" id="register-submit" tabindex="5" class="form-control btn btn-primary" value="Register Now">
-                                            </div>
-                                        </div>
+                                    <div *ngIf="error" class="alert alert-danger">
+                                        {{error}} <br/> If first time login, Please goto 
+                                        <a (click)="gotoRegister()">Register</a>
                                     </div>
                                 </form>
                             </div>

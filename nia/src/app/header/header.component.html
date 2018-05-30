@@ -1,43 +1,36 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- <div class="navbar-header">
-      <a href="#" class="navbar-brand">Home</a>
-    </div> -->
-
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <!-- <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-	      <ul class="nav nav-tabs"> -->
-	        <li role="presentation"
-	            routerLinkActive="active"
-	            [routerLinkActiveOptions]="{exact: true}">
-	          <a routerLink="/">Home</a>
-	        </li>
-	        <li role="presentation"
-	            routerLinkActive="active">
-	          <a routerLink="login">Login</a>
-	        </li>
-	        <li role="presentation"
-	            routerLinkActive="active">
-	          <a [routerLink]="['admin']">Admin</a>
-	        </li>
-	        <li role="presentation"
-	            routerLinkActive="active">
-	          <a routerLink="exam">Exam</a>
-	        </li>
-	      <!-- </ul>
-	    </div> 
-	  </div>-->
+<div>
+  <ul class="nav nav-tabs nav-justified">
+  	<li class="nav-item" role="presentation"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav-link" routerLink="/">Home</a>
+    </li>
+    <li class="nav-item" role="presentation"
+        routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['register']">Register</a>
+    </li>
+    <li class="nav-item" role="presentation"
+        routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['admin']">Admin</a>
+    </li>
+    <li class="nav-item" role="presentation"
+        routerLinkActive="active">
+      <a class="nav-link" routerLink="exam">Exam</a>
+    </li>
+    <ul class="nav navbar-nav navbar-right ml-auto">
+    <li role="presentation"  routerLinkActive="active">
+          <a class="nav-link" routerLink="login">Login</a>
+    </li>
+	</ul>
+    <!-- <li class="dropdown" appDropdown>
+      <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a style="cursor: pointer;">Save Data</a></li>
+        <li><a style="cursor: pointer;">Fetch Data</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" appDropdown>
-          <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a style="cursor: pointer;">Save Data</a></li>
-            <li><a style="cursor: pointer;">Fetch Data</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    </li> -->
+  </ul>
+  <!-- <ul class="nav navbar-nav navbar-right ml-auto">
+  	
+  </ul> -->
+</div>

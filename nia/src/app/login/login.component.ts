@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     registerModel : any = {};
     loading = false;
     error = '';
-    showRegister: boolean = false;
+    
  
     constructor(
         private router: Router,
@@ -40,19 +40,10 @@ export class LoginComponent implements OnInit {
             });
     }
 
-    register() {
-        console.log(this.registerModel.username);
-        console.log(this.registerModel.password);
-        console.log(this.registerModel.email);
-        console.log(this.registerModel.confirm_password);
-    }
-    goRegister() {
-        //console.log("showRegister");
-        this.showRegister = true;
-    }
+    
 
-    goLogin() {
-        //console.log("showLogin");
-        this.showRegister = false;
+    gotoRegister() {
+        this.router.navigate(['register']);
     }
+    
 }
