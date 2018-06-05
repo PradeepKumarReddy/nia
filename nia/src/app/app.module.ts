@@ -16,7 +16,8 @@ import { AppComponent }  from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './_guards/index';
-import { AuthenticationService, UserService, AuthService } from './_services/index';
+import { AuthenticationService, UserService, AuthService, RegisterService,
+    AddQuestionService, ExamService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { ExamComponent } from './exam/exam.component';
 import { TimerComponent } from './timer/timer.component';
@@ -55,6 +56,8 @@ import { RegisterComponent } from './register/register.component';
     AuthenticationService,
     AuthService,
     UserService,
+    RegisterService,
+    AddQuestionService,
     // providers used to create fake backend
     fakeBackendProvider,
     MockBackend,

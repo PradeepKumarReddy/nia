@@ -1,8 +1,8 @@
-import { Option } from './option';
+import { QuestionOption } from './option';
 
 export class Question {
 	id? : number;
-	name?: string;
-	options? : Option[] = [];
+	questionDesc?: string;
+	options? : QuestionOption[] = [];
 	isAnswered? : boolean = false;
 }

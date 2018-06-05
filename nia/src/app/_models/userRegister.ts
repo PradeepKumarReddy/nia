@@ -1,6 +1,7 @@
-export class UserDetails {
-    id?: number;
-    firstName?: string;
+export class UserRegister {
+    id: number;
+    registrationId: string;
+    firstName: string;
     lastName: string;
     fatherName: string;
     gender: string;

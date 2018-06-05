@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Question , Option } from '../_models/index';
+import { Question , QuestionOption } from '../_models/index';
+
+import { AddQuestionService } from '../_services/index';
 
 @Component({
   selector: 'app-admin',
@@ -11,20 +13,20 @@ export class AdminComponent implements OnInit {
   questions : Question[] = [];
 
   addQuestionModel : Question;
-  addOptionModel : Option[] = [];
+  addOptionModel : QuestionOption[] = [];
   option : string = "";
 
-  constructor() { }
+  constructor(private questionService : AddQuestionService) { }
 
   ngOnInit() {
   	this.questions = [{
   		"id": 1,
-  		"name": "Who is PM ?",
+  		"questionDesc": "Who is PM ?",
   		options: [
-  			{"id":1, "name": "Modi"},
-  			{"id":2, "name": "Rahul"},
-  			{"id":3, "name": "Kohli"},
-  			{"id":4, "name": "Dhoni"}
+  			{"id":1, "optionDesc": "Modi"},
+  			{"id":2, "optionDesc": "Rahul"},
+  			{"id":3, "optionDesc": "Kohli"},
+  			{"id":4, "optionDesc": "Dhoni"}
   		]
   	}
   	];
@@ -36,13 +38,25 @@ export class AdminComponent implements OnInit {
     console.log("add question called");
     this.addQuestionModel.options.push(...this.addOptionModel);
     this.questions.push(this.addQuestionModel);
+    
+    this.questionService.addQuestion(this.addQuestionModel).subscribe(
+      (question : Question) => {
+       console.log(question);
+       },
+      err => console.error(err),
+      () => console.log('Question added successful')
+    );
     this.addQuestionModel = new Question();
     this.addOptionModel = [];
   }
 
   addOption() {
-    this.addOptionModel.push({"name" : this.option});
+    this.addOptionModel.push({"optionDesc" : this.option});
     this.option = "";
+  }
+
+  removeOptoin(index) {
+    this.addOptionModel.splice(index, 1);
   }
 
 }

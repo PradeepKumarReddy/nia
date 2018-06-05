@@ -1,6 +1,6 @@
-export class Option {
+export class QuestionOption {
 	id? : number;
-	name? : string;
+	optionDesc? : string;
 	isAnswer? : boolean;
 	selected? : boolean = false;
 	/*
