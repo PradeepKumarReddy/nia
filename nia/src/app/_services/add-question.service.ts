@@ -15,6 +15,7 @@ export class AddQuestionService {
   constructor(private http: HttpClient) { }
 
   addQuestion(question : Question) {
+  console.log(question);
   	return this.http.post("http://localhost:8080/api/question/add", question, httpOptions);
   }
 }

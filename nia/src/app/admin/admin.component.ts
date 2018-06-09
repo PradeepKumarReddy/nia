@@ -36,9 +36,10 @@ export class AdminComponent implements OnInit {
 
   addQuestion() {
     console.log("add question called");
+    console.log(this.addOptionModel);
     this.addQuestionModel.options.push(...this.addOptionModel);
     this.questions.push(this.addQuestionModel);
-    
+    console.log(this.questions);
     this.questionService.addQuestion(this.addQuestionModel).subscribe(
       (question : Question) => {
        console.log(question);
@@ -46,6 +47,7 @@ export class AdminComponent implements OnInit {
       err => console.error(err),
       () => console.log('Question added successful')
     );
+    
     this.addQuestionModel = new Question();
     this.addOptionModel = [];
   }

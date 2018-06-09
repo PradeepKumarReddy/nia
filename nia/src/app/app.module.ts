@@ -25,6 +25,7 @@ import { HeaderComponent } from './header/header.component';
 import { NewtimerComponent } from './newtimer/newtimer.component';
 import { SecondsToDateTimePipe } from './_helpers/index';
 import { RegisterComponent } from './register/register.component';
+import { ViewExamComponent } from './exam/view-exam/view-exam.component';
 
 
 
@@ -41,7 +42,8 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     NewtimerComponent,
     SecondsToDateTimePipe,
-    RegisterComponent
+    RegisterComponent,
+    ViewExamComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import { RegisterComponent } from './register/register.component';
     UserService,
     RegisterService,
     AddQuestionService,
+    ExamService,
     // providers used to create fake backend
     fakeBackendProvider,
     MockBackend,

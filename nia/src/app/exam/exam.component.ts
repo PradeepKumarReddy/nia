@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Question, QuestionOption } from "../_models/index";
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ExamService } from '../_services/index';
+import { Exam } from '../_models/index';
 
 import { TimerComponent } from '../timer/timer.component';
 
@@ -10,12 +13,20 @@ import { TimerComponent } from '../timer/timer.component';
 })
 export class ExamComponent implements OnInit {
 
+  
   p : number = 1;
+  exam : Exam
   questions : Question[] = [];
 
-  constructor() { }
+  examStarted: boolean = false;
+
+  constructor(private router: Router, private route: ActivatedRoute, 
+  								private examService : ExamService) {
+  	this.route.params.subscribe( params => console.log(params) );
+  }
 
   ngOnInit() {
+  //this.router.queryParams.subscribe()
   		/*this.questions = [
   			{
   			"id": 1,
@@ -184,4 +195,24 @@ export class ExamComponent implements OnInit {
   	this.p = i+1;
   }
 
+  startExam(examId: number) {
+  	this.examStarted = true;
+  	//this.loadExam(examId) ;
+  	this.router.navigate(['view-exam', examId], {relativeTo : this.route});
+  	
+  }
+
+  loadExam(examId : number) {
+  	this.examService.getExamById(examId).subscribe(
+      (exam : Exam) => {
+       console.log(exam);
+       //this.registerModel = userRegister
+       },
+      err => console.error(err),
+      () => console.log('loaded Exam successful')
+    );
+  }
+  endExam() {
+  	this.examStarted = false;
+  }
 }
