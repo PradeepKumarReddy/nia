@@ -94,13 +94,27 @@ export class ViewExamComponent implements OnInit {
     setTimeout( () => {
       this.examService.endUserExam(this.userExam).subscribe(
         (res : UserExam) => {
-         console.log(res);
-         this.resultExam = res;
+         console.log(res.username);
+         //this.resultExam = res;
+         //this.resultExam.userResponses = [...res.userResponses];
          },
         err => console.error(err),
         () => console.log('endExam successful')
       );
     }, 200);  
+
+    this.questions.forEach(
+      (question) => {
+        this.resultExam.userResponses.forEach(
+          (userResponse) => {
+            if(userResponse.questionId === question.id) {
+              question.userResponse = userResponse;
+            }
+          }
+        );
+      }
+    );
+    console.log("questions" + this.questions);
     console.log("Exam Completed");
     this.examSubmit = true;
     //this.router.navigate(['exam/result-exam', this.examId]);

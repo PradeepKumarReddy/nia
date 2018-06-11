@@ -62,10 +62,19 @@
 <div class="container" *ngIf="examSubmit">
 	
 Exam Submitted
-	<div class="row">
-		<div class="col-md-6 text-left options" *ngFor="let response of resultExam.userResponses">
-				{{response.questionId}}
+	
+		<div *ngFor="let question of questions; let i = index ">
+			<div class="row">
+				<div class="row">
+					<div class="col-md-12">
+						<h5><span>{{question.questionDesc}}</span></h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 text-left options" *ngFor="let option of question.options" [ngStyle]="{'background-color' : option.answer ? 'green' : 'white'}">
+							{{option.optionDesc}}
+					</div>
+				</div>
 			</div>
 		</div>
-
 </div>
