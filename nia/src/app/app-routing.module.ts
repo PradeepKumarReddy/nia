@@ -7,14 +7,18 @@ import { LoginComponent } from './login/login.component';
 import { ExamComponent } from './exam/exam.component';
 import { RegisterComponent } from './register/register.component';
 import { ViewExamComponent } from './exam/view-exam/view-exam.component';
+import { ResultExamComponent } from './exam/result-exam/result-exam.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'exam', component: ExamComponent , children : [{
-  	path: 'view-exam/:examId', component: ViewExamComponent
-  	}]
+  { path: 'exam', component: ExamComponent,
+     children : [
+        {path: 'view-exam/:examId', component: ViewExamComponent}, 
+        {path: 'result-exam/:examId', component: ResultExamComponent}
+     ]
   },
   { path: 'register', component: RegisterComponent },
 ];

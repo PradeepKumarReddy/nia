@@ -11,7 +11,7 @@ import { SimpleTimer } from 'ng2-simple-timer';
 })
 export class TimerComponent implements OnInit {
 
-   counter=30;
+   counter=300;
    timerId: string;
    timerbutton = 'Subscribe';
 

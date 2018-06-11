@@ -3,3 +3,5 @@ export * from './option';
 export * from './question';
 export * from './userRegister';
 export * from './exam';
+export * from './userExam';
+export * from './userResponse';

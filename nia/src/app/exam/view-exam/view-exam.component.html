@@ -1,8 +1,16 @@
-<div class="container">
-	Exam Id : {{examId}}
-	
-	<app-timer></app-timer>
-    <div class="row">
+<div class="container" *ngIf="!examSubmit">
+	<div class="row">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			Registration Id TEST
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			{{exam.examName}}
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<app-timer></app-timer>
+		</div>
+	</div>
+	<div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         	<div class="exambox">
 	        	<div *ngFor="let question of questions; let i = index ">
@@ -45,4 +53,19 @@
 			</div>
         </div>
     </div>
+    <div class="row">
+    	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    		<button class="btn btn-primary" (click)="endExam()">End Exam</button>
+    	</div>
+    </div>
+</div>
+<div class="container" *ngIf="examSubmit">
+	
+Exam Submitted
+	<div class="row">
+		<div class="col-md-6 text-left options" *ngFor="let response of resultExam.userResponses">
+				{{response.questionId}}
+			</div>
+		</div>
+
 </div>

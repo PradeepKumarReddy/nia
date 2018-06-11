@@ -26,6 +26,7 @@ import { NewtimerComponent } from './newtimer/newtimer.component';
 import { SecondsToDateTimePipe } from './_helpers/index';
 import { RegisterComponent } from './register/register.component';
 import { ViewExamComponent } from './exam/view-exam/view-exam.component';
+import { ResultExamComponent } from './exam/result-exam/result-exam.component';
 
 
 
@@ -43,7 +44,8 @@ import { ViewExamComponent } from './exam/view-exam/view-exam.component';
     NewtimerComponent,
     SecondsToDateTimePipe,
     RegisterComponent,
-    ViewExamComponent
+    ViewExamComponent,
+    ResultExamComponent
   ],
   imports: [
     BrowserModule,
