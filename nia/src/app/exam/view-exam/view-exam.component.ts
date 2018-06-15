@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import { Exam, Question, UserExam, UserResponse } from '../../_models/index';
+import { Exam, Question, UserExam, UserResponse, QuestionOption } from '../../_models/index';
 import { ExamService } from '../../_services/index';
 
 const httpOptions = {
@@ -24,7 +24,8 @@ export class ViewExamComponent implements OnInit {
   userExam : UserExam;
   userResponse? : UserResponse;
   examSubmit : boolean = false;
-  resultExam : UserExam;
+  resultExam : Exam;
+  resultQuestions : Question[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, 
   								private examService : ExamService) { }
@@ -76,7 +77,7 @@ export class ViewExamComponent implements OnInit {
   endExam() {
     this.userExam = {};
     this.userExam.examId = this.examId;
-    this.userExam.username = 'NA0002';
+    this.userExam.username = 'NA0001';
     this.userExam.userResponses = [];
     this.questions.forEach((question) => {
         this.userResponse = new UserResponse();
@@ -91,33 +92,49 @@ export class ViewExamComponent implements OnInit {
         this.userExam.userResponses.push(this.userResponse);
     });
     console.log(this.userExam);
+   /*
     setTimeout( () => {
       this.examService.endUserExam(this.userExam).subscribe(
         (res : UserExam) => {
          console.log(res.username);
-         //this.resultExam = res;
-         //this.resultExam.userResponses = [...res.userResponses];
+         this.resultExam = res;
+         this.resultExam.userResponses = [...res.userResponses];
          },
         err => console.error(err),
         () => console.log('endExam successful')
       );
     }, 200);  
+   */
 
-    this.questions.forEach(
-      (question) => {
-        this.resultExam.userResponses.forEach(
-          (userResponse) => {
-            if(userResponse.questionId === question.id) {
-              question.userResponse = userResponse;
-            }
-          }
-        );
-      }
-    );
+   setTimeout( () => {
+      this.examService.endUserExam(this.userExam).subscribe(
+        (res : Exam) => {
+         
+         this.resultExam = res;
+         this.resultQuestions = [...res.questions];
+         
+         },
+        err => console.error(err),
+        () => console.log('endExam successful')
+      );
+    }, 200); 
+   
     console.log("questions" + this.questions);
     console.log("Exam Completed");
     this.examSubmit = true;
     //this.router.navigate(['exam/result-exam', this.examId]);
   }
 
+ getStyle(option : QuestionOption) {
+    console.log("getStyle");
+    if(option.userSelected && option.answer) {
+      return "badge badge-success";
+    } else if (option.answer) {
+      return "badge badge-success";
+    } else if(option.userSelected) {
+      return "badge badge-warning";
+    } else {
+      return "badge badge-light";
+    }
+ }
 }

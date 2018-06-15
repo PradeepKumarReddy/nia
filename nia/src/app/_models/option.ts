@@ -3,6 +3,7 @@ export class QuestionOption {
 	optionDesc? : string;
 	answer? : boolean;
 	selected? : boolean = false;
+	userSelect?: boolean;
 	/*
 	Option(id : number,	name : string, isAnswer : boolean,	selected : boolean) {
 		this.id = id;

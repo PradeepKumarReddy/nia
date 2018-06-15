@@ -22,7 +22,7 @@ export class ExamService {
   	return this.http.post("http://localhost:8080/api/userExam/add", JSON.stringify({ username: username, examId: examId }), httpOptions);
   }
 
-  endUserExam(userExam : UserExam) : Observable<UserExam> {
+  endUserExam(userExam : UserExam) : Observable<Exam> {
     console.log("User service", userExam);
     return this.http.post("http://localhost:8080/api/userExam/update", userExam, httpOptions);
   }

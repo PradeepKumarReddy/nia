@@ -7,4 +7,6 @@ export class Question {
 	options? : QuestionOption[] = [];
 	isAnswered? : boolean = false;
 	userResponse? : UserResponse;
+	resultDesc? : string; 
+	correctAnswered? : boolean;
 }
