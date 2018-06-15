@@ -112,6 +112,7 @@ export class ViewExamComponent implements OnInit {
          
          this.resultExam = res;
          this.resultQuestions = [...res.questions];
+         console.log(res);
          
          },
         err => console.error(err),
@@ -127,11 +128,11 @@ export class ViewExamComponent implements OnInit {
 
  getStyle(option : QuestionOption) {
     console.log("getStyle");
-    if(option.userSelected && option.answer) {
+    if(option.userSelect && option.answer) {
       return "badge badge-success";
     } else if (option.answer) {
       return "badge badge-success";
-    } else if(option.userSelected) {
+    } else if(option.userSelect) {
       return "badge badge-warning";
     } else {
       return "badge badge-light";

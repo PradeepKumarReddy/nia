@@ -59,51 +59,46 @@
     	</div>
     </div>
 </div>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">Question</div>
-
-	</div>
-	<div class="row">
-		<div class="col-sm-6">Option1</div>
-		<div class="col-sm-6">Option2</div>
-	</div>
-</div>
-<div class="container-fluid" *ngIf="examSubmit">
+`	<div class="container-fluid" *ngIf="examSubmit">
 	<h3><span>Exam Submitted</span></h3>
 
 	
 		<div *ngFor="let question of resultQuestions; let i = index ">
 			<div class="row" *ngIf="question.correctAnswered">
 				
+					<div class="col-md-12 badge badge-dark">
+						<h5><span class="">{{question.questionDesc}}</span></h5>
+					</div>
+				
+					<div class="col-md-12 text-left options badge badge-light" *ngFor="let option of question.options"> 
+
+							<h6><span [ngClass]="(option.userSelect && option.answer) ? 'text-success' : ((option.answer) ? 'text-success' : ((option.userSelect) ? 'text-warning' : 'text-muted'))">{{option.optionDesc}}</span>
+							</h6>
+							
+					</div>
+				
+				
 					<div class="col-md-12">
-						<h5><span>{{question.questionDesc}}</span></h5>
-					</div>
-				
-					<div class="col-md-6 text-left options" *ngFor="let option of question.options" [ngStyle]="{'background-color' : option.answer ? 'green' : 'white'}">
-							{{option.optionDesc}}
-					</div>
-				
-				
-					<div class="col-md-6">
-						<span class="badge badge-success">Your Answer is Correct</span>
+						<span class="badge badge-pill badge-success">Your Answer is Correct</span>
 					</div>
 				
 			</div>
 			<div class="row" *ngIf="!question.correctAnswered">
 				
 
-					<div class="col-md-12">
-						<h5><span>{{question.questionDesc}}</span></h5>
+					<div class="col-md-12 badge badge-dark">
+						<h5><span class="">{{question.questionDesc}}</span></h5>
 					</div>
 				
 				
-					<div class="col-md-6 text-left options" *ngFor="let option of question.options">
-						<span>{{option.optionDesc}}</span>
+					<div class="col-md-12 text-left options badge badge-light" *ngFor="let option of question.options">
+						<h6><span [ngClass]="(option.userSelect && option.answer) ? 'text-success' : ((option.answer) ? 'text-success' : ((option.userSelect) ? 'text-warning' : 'text-muted'))">{{option.optionDesc}}</span>
+						</h6>
+						
 					</div>
 				
 					<div class="col-md-12">
-						<span class="badge badge-danger">Your Answer is Wrong</span>
+						<span class="badge badge-pill badge-danger">Your Answer is Wrong/ Not Answered</span>
 					</div>
 				
 			</div>
