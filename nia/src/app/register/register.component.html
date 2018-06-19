@@ -5,8 +5,8 @@
 	<a href="" class="float-right btn btn-outline-primary mt-1">Log in</a>
 	<h4 class="card-title mt-2">Sign up</h4>
 </header> -->
-<article class="card-body">
-<form (submit)="register()" *ngIf="!registerSuccess">
+<article class="card-body" *ngIf="!registerSuccess">
+<form (submit)="register()" >
 	<div class="form-row">
 		<div class="col form-group">
 			<label>First name </label>   
@@ -119,51 +119,23 @@
 	</div>
 	
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <button (click)="register()" [disabled]="loading" class="btn btn-primary btn-block">Register</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
     </div>  
     <!-- <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>  -->                                         
 </form>
-
-<form id="register-form" (ngSubmit)="signup()" *ngIf="registerSuccess">
-                    <div class="form-group">
-                        <input type="text" name="username" id="username" tabindex="1" 
-                        required
-                        class="form-control" placeholder="Username" 
-                        [(ngModel)]="signupUser.username" readonly="true">
-                    </div>
-                    <!-- <div [hidden]="registerModel.username.valid"
-                         class="alert alert-danger">
-                      Username is required
-                    </div> -->
-                    <div class="form-group">
-                        <input type="password" name="password" id="password" tabindex="3" class="form-control" placeholder="Password" 
-                        required
-                        [(ngModel)]="signupUser.password"
-                        >
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="confirm-password" 
-                        id="confirm-password" tabindex="4" class="form-control" placeholder="Confirm Password" 
-                        [(ngModel)]="registerModel.confirm_password" required>
-                    </div>
-                    <div *ngIf="signupUser.password != registerModel.confirm_password"
-                         class="alert alert-danger">
-                      Confirm Password should be same as Password
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-6 col-sm-offset-3">
-                                
-                                <input type="submit" name="register-submit" id="register-submit" tabindex="5" class="form-control btn btn-primary" value="Online Signup">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-</article>
 <div class="border-top card-body text-center">
-	Have an account? <a class="text-primary text_hover" (click)="gotoLogin()">Log In</a></div>
+	Have an account? <a class="text-primary text_hover" (click)="gotoLogin()">Log In</a>
 </div>
-</div>
+
+
+</article>
 
 </div>
 
+</div>
+</div>
+
+<div *ngIf="registerSuccess">
+    <router-outlet></router-outlet>
+</div>
