@@ -19,30 +19,23 @@
     </li>
     <li class="nav-item" role="presentation"
         routerLinkActive="active">
-      <div class="dropdown">
+      <div class="dropdown" *ngIf="(app.localStorageItem('currentUser') != '')">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
+          {{app.localStorageItem("currentUser")}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <button class="dropdown-item" (click)="logout()">Logout</button>
+          
         </div>
       </div>
     </li>
-    <ul class="nav navbar-nav navbar-right ml-auto">
+    <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="(app.localStorageItem('currentUser') == '')">
     <li role="presentation"  routerLinkActive="active">
           <a class="nav-link" routerLink="login">Login</a>
     </li>
 
 	</ul>
-    <li class="dropdown" appDropdown>
-      <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a style="cursor: pointer;">Save Data</a></li>
-        <li><a style="cursor: pointer;">Fetch Data</a></li>
-      </ul>
-    </li>
+    
   </ul>
   <!-- <ul class="nav navbar-nav navbar-right ml-auto">
   	
