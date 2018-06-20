@@ -21,4 +21,14 @@
 	cursor: pointer;
 }
 
+.question {
+  display: flex;
+  flex-wrap: wrap;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  margin-bottom: $breadcrumb-margin-bottom;
+  list-style: none;
+  background-color: #e9ecef;
+}
+
+
 

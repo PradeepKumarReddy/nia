@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   signupUser: User;
   confirm_password: string;
   loading = false;
+  error = '';
 
   constructor(private router: Router, private route: ActivatedRoute, private registerService: RegisterService) { 
     this.route.params.subscribe( params => console.log(params) );

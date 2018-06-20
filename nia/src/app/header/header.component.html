@@ -20,7 +20,7 @@
     <li class="nav-item" role="presentation"
         routerLinkActive="active">
       <div class="dropdown" *ngIf="(app.localStorageItem('currentUser') != '')">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{app.localStorageItem("currentUser")}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
