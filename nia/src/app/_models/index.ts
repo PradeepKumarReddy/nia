@@ -5,3 +5,5 @@ export * from './userRegister';
 export * from './exam';
 export * from './userExam';
 export * from './userResponse';
+export * from './role';
+export * from './privilege';
